@@ -23,15 +23,14 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
-app.use((req, res, next) => {
-  req.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Headers","*")
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
